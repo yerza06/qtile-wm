@@ -167,7 +167,11 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(
+        border_focus_stack=["##e74c3c", "##b03a2e"], 
+        border_width=5,
+        margin = 10
+    ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -190,6 +194,8 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 line = " ┇ "
+line_color = "#939393"
+indicator_color = "#ec7063"
 
 screens = [
     Screen(
@@ -216,21 +222,21 @@ screens = [
                     #change_command="brightnessctl set {0}%",
                     fmt="<b>BLI</b> {}",
                 ),
-                widget.TextBox(line),
+                widget.TextBox(line, foreground=line_color),
                 widget.Volume(fmt="<b>VOL</b> {}"),
-                widget.TextBox(line),
+                widget.TextBox(line, foreground=line_color),
                 widget.KeyboardLayout(configured_keyboards=['us', 'ru', 'kz'], fmt="<b>LAN</b> {}"),
-                widget.TextBox(line),
+                widget.TextBox(line, foreground=line_color),
                 widget.Memory(format="{MemPercent}%",fmt="<b>RAM </b> {}"),
-                widget.TextBox(line),
+                widget.TextBox(line, foreground=line_color),
                 widget.CPU(format="{load_percent}%", fmt="<b>CPU</b> {}"),
-                widget.TextBox(line),
+                widget.TextBox(line, foreground=line_color),
                 widget.Wlan(fmt="<b>WiFi</b> {}", use_ethernet=True),
-                widget.TextBox(line),
+                widget.TextBox(line, foreground=line_color),
                 widget.TextBox(f"<b>IP</b> {MCW.get_wifi_ip()}"),
                 #widget.TextBox(f"<b>EIP</b> {MCW.get_external_ip()}"),
-                widget.TextBox(line),
-                widget.Systray(),
+                widget.TextBox(line, foreground=line_color),
+                #widget.Systray(),
                 #widget.Battery(
                 #    format="{char} {percent:2.0%}",
                 #    charge_char="↑",  # Символ для зарядки
@@ -239,7 +245,7 @@ screens = [
                 #    full_char="⚡",  # Символ для полной зарядки
                 #    update_interval=30,  # Интервал обновления в секундах
                 #),
-                widget.Clock(format="%H:%M:%S", fmt="<b>{}</b>  "),
+                widget.Clock(format="%Y-%m-%d %H:%M:%S", fmt="<b>{}</b>  "),
                 #widget.TextBox(line),
                 #widget.QuickExit(fmt="<b>{}</b>"),
             ],
@@ -302,4 +308,4 @@ wl_xcursor_size = 24
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "qTile yerza"
