@@ -1,10 +1,11 @@
 #!/bin/sh
 
-cp ~/.config/qtile/config.py ~/conf-git/qtile
-cp ~/.config/qtile/autostart.sh ~/conf-git/qtile
+# Copy config Qtile
+cp -r ~/.config/qtile/ config/qtile
 
-cp ~/.config/qtile/my_widget.py ~/conf-git/qtile
-cp ~/.config/nvim/init.vim ~/conf-git/nvim
+# Copy config NeoVim
+cp -r ~/.config/nvim/ config/nvim
 
-cp ~/.config/alacritty/alacritty.toml ~/conf-git/alacritty
-cp ~/.config/alacritty/colors.toml ~/conf-git/alacritty
+# Copy config Alacritty
+cp -r ~/.config/alacritty/ config/alacritty
+
